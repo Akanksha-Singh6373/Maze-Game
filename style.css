@@ -1,0 +1,100 @@
+body {
+    text-align: center;
+    background: rgb(243, 184, 184);
+  }
+button{
+  margin-top: 1rem;
+  margin-left: 35rem;
+  width:200px;
+  height:50px;
+  background:rgb(27, 27, 34);
+  color: white;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+
+}
+button:before{
+  content:"";
+  position: absolute;
+  left:0;
+  top:0;
+  width:0;
+  height: 0;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  animation: border-top-right 3s infinite alternate;
+}
+button:after{
+  content: '';
+  position: absolute;
+  right:0;
+  bottom:0;
+  width:0;
+  height: 0;
+  border-bottom: 3px solid white;
+  border-left: 3px solid white;
+  animation: border-bottom-left 3s infinite alternate;
+}
+@keyframes border-top-right{
+  0%        {width:0px; height:0px}
+  50%       {width:200px; height:0px;}
+  100%       {width:200px; height:40px;}
+}
+@keyframes border-bottom-left{
+  0%         {width:0px; height:0px; opacity:0;}
+  50%        {width:0px; height:0px; opacity:0;}
+  50.1%      {width:0px; height:0px; opacity:1;}
+  75%        {width:200px; height:0px; opacity:1;}
+  100%       {width:200px; height:48px; opacity:1;}
+}
+  h1 {
+    font-size: 24px;
+  }
+
+  .maze {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border: 2px solid black;
+  }
+
+  .cell {
+    border: 1px solid black;
+    background-color: white;
+  }
+
+  .player {
+    background-color: blue;
+  }
+
+  .goal {
+    background-color: green;
+  }
+
+  .obstacle {
+    background-color: black;
+  }
+
+  .animated {
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes movePlayer {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
